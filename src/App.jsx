@@ -1,19 +1,19 @@
-import './App.css'
+import "./App.css";
 /* import { Search } from './Search' */
-import {UbicacionIcon , LocalizacionIcon } from './components/Icons'
-import NubesFondo from '/Cloud-background.png'
+import { UbicacionIcon, LocalizacionIcon } from "./components/Icons";
 import {
   climaSemanal,
   climaSemanalCordenadas,
   clima,
   climaXCordernadas,
 } from "./components/Api/WeatherApi";
-import { useState, useEffect } from 'react';
-import { InputSearch } from './components/InputSearch';
-import { WeakWeather } from './components/WeakWeather';
-import { HightlightsMedidas } from './components/HightlightsMedidas';
-
-
+import { useState, useEffect } from "react";
+import { InputSearch } from "./components/InputSearch";
+import { WeakWeather } from "./components/WeakWeather";
+import { Footer } from "./components/Footer";
+import { HightlightsMedidas } from "./components/HightlightsMedidas";
+import { ChangeTemperature } from "./components/ChangeTemperature";
+import { Status } from "./components/Status";
 
 function App() {
   const [fahrenheit, setFahrenheit] = useState(false);
@@ -53,7 +53,7 @@ function App() {
     progreso.style.width = Math.round(main?.humidity ?? 0) + "%";
     windStatus.style.transform = `rotate(${wind.deg}deg)`;
   };
-    
+
   const changeForecast = (data) => {
     const dailyForecast = [];
 
@@ -95,79 +95,55 @@ function App() {
         climaXCordernadas(lat, lon).then((data) => changeWeather(data));
         climaSemanalCordenadas(lat, lon).then((data) => changeForecast(data));
       });
-    } 
+    }
   };
 
   const buscarPlace = (place) => {
-    
+    addPlaceToLocalStorage(place);
     clima(place).then((data) => changeWeather(data));
     climaSemanal(place).then((data) => changeForecast(data));
   };
-
 
   useEffect(() => {
     clima("ecuador").then((data) => changeWeather(data));
     climaSemanal("ecuador").then((data) => changeForecast(data));
   }, []);
 
+  const changeGradosF = () => {
+    setFahrenheit(true);
+    setMph(true);
+  };
+
+  const changeGradosC = () => {
+    setFahrenheit(false);
+    setMph(false);
+  };
 
   return (
     <>
-   
-     <section className="md:fixed md:top-0 md:bottom-0 md:left-0 md:w-[400px] relative ">
-
-        <InputSearch buscarPlace={buscarPlace} />
-        <article className="px-4 py-20 bg-base-color md:h-screen truncate w-full max-sm:h-[1100px] sm:h-[1100px]">
-          <button
-            className="absolute top-6 right-4 bg-gray-3 rounded-full p-3 "
-            onClick={cords}
-          >
-            <LocalizacionIcon />
-          </button>
-          <div className="flex flex-col items-center relative ">
-
-          <div className=" flex items-center justify-center lg:w-[600px] md:w-[600px]  max-sm:w-[820px] sm:w-[860px]">
-
-          <img className="w-[180px] absolute m-[35px]" src={`/${weatherData.weather}.png`}  alt={`/${weatherData.weather}`} />  
-      
-          <img className="w-[100%] h-auto opacity-10 " src={NubesFondo} alt="" />
-          </div>
-
-            <p className="text-[144px] font-medium">
-            {fahrenheit
-                  ? Math.floor(weatherData.temp * (9 / 5) + 32)
-                  : weatherData.temp}
-              <span className="text-gray-2 text-5xl"> {fahrenheit ? "°F" : "°C"}</span>
-            </p>
-            <p className="text-gray-2 text-4xl font-semibold pb-12">
-              {weatherData.weather}
-            </p>
-            <div className="flex gap-4 text-gray-2 text-lg font-medium pb-6">
-              <span>Today</span>
-              <span>•</span>
-              <span>{weatherData.dateFormat}</span>
-            </div>
-            <div className="flex gap-3">
-              <UbicacionIcon />
-              <p className="text-gray-2 text-lg font-semibold">
-                {weatherData.locationName}
-              </p>
-            </div>
-          </div>
-        </article>
-       
-      </section>
-      <WeakWeather 
-      forecastData={forecastData}
-      keys={keys}  
-      fahrenheit={fahrenheit}
-      />
-      <HightlightsMedidas
-      weatherData={weatherData}
-      mph={mph}
-      />
+      <main className="md:flex max-w-8xl mx-auto">
+        <Status
+          weatherData={weatherData}
+          buscarPlace={buscarPlace}
+          cords={cords}
+          fahrenheit={fahrenheit}
+        />
+        <ChangeTemperature
+          changeGradosF={changeGradosF}
+          changeGradosC={changeGradosC}
+        />
+        <section className="md:flex-1 md:pl-[400px] md:m-20">
+          <WeakWeather
+            forecastData={forecastData}
+            keys={keys}
+            fahrenheit={fahrenheit}
+          />
+          <HightlightsMedidas weatherData={weatherData} mph={mph} />
+          <Footer />
+        </section>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

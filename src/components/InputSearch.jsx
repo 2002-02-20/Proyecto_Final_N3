@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { CloseIcon, RightIcon, LupaIcon } from './Icons'
-
+/* import { getPlacesFromLocalStorage } from '../utils/storage' */
 
 export function InputSearch ({ buscarPlace }) {
   const [abrirMenu, setAbrirMenu] = useState(false)
@@ -26,7 +26,9 @@ export function InputSearch ({ buscarPlace }) {
     toggleMenu()
   }
 
- 
+  useEffect(() => {
+/*     setPlaces(getPlacesFromLocalStorage())
+ */  }, [])
   return (
     <header className='bg-base-color'>
       <div className='py-6 px-4'>
