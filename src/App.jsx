@@ -1,6 +1,4 @@
 import "./App.css";
-/* import { Search } from './Search' */
-import { UbicacionIcon, LocalizacionIcon } from "./components/Icons";
 import {
   climaSemanal,
   climaSemanalCordenadas,
@@ -8,12 +6,12 @@ import {
   climaXCordernadas,
 } from "./components/Api/WeatherApi";
 import { useState, useEffect } from "react";
-import { InputSearch } from "./components/InputSearch";
 import { WeakWeather } from "./components/WeakWeather";
 import { Footer } from "./components/Footer";
 import { HightlightsMedidas } from "./components/HightlightsMedidas";
 import { ChangeTemperature } from "./components/ChangeTemperature";
 import { Status } from "./components/Status";
+import { addPlaceToLocalStorage } from "./components/LocalStorage";
 
 function App() {
   const [fahrenheit, setFahrenheit] = useState(false);
@@ -100,9 +98,16 @@ function App() {
 
   const buscarPlace = (place) => {
     addPlaceToLocalStorage(place);
+
     clima(place).then((data) => changeWeather(data));
     climaSemanal(place).then((data) => changeForecast(data));
   };
+
+  /*  const inputSearch = (place) => {
+    addPlaceToLocalStorage(place);
+    getWeather(place).then((data) => changeWeather(data));
+    getForecast(place).then((data) => changeForecast(data));
+  }; */
 
   useEffect(() => {
     clima("ecuador").then((data) => changeWeather(data));
