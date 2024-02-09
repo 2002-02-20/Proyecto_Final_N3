@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowIcon } from "./Icons";
+import { WindArrowIcon } from "./Icons";
 
 export const HightlightsMedidas = ({ weatherData, mph }) => {
   return (
@@ -20,8 +20,8 @@ export const HightlightsMedidas = ({ weatherData, mph }) => {
             </p>
 
             <div className="flex items-center pt-5 gap-4">
-              <span id="windStatus" className="bg-gray-4 p-3 rounded-full">
-                <ArrowIcon />
+              <span id="windStatus" className="bg-gray-3 p-3 rounded-full">
+                <WindArrowIcon />
               </span>
               <span>WSW</span>
             </div>

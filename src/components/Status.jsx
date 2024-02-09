@@ -6,18 +6,18 @@ import NubesFondo from "/Cloud-background.png";
 export const Status = ({ weatherData, buscarPlace, cords, fahrenheit }) => {
   return (
     <>
-    
       <section className="md:fixed md:top-0 md:bottom-0 md:left-0 md:w-[400px] relative  ">
+        <article className="px-4  bg-base-color md:h-screen truncate w-full max-sm:h-[950px] sm:h-[990px] ">
         <InputSearch buscarPlace={buscarPlace} />
-        <article className="px-4 bg-base-color md:h-screen truncate w-full max-sm:h-[950px] sm:h-[950px] ">
           <button
-            className="absolute top-6 right-4 bg-gray-3 rounded-full p-3 hover:bg-indigo-700 duration-700"
+            className="absolute top-4 right-4 bg-gray-3 rounded-full p-3 hover:bg-indigo-700 duration-700 transform hover:scale-110 transition ease-in-out"
             onClick={cords}
           >
             <LocalizacionIcon />
           </button>
+          
           <div className="flex flex-col items-center relative ">
-            <div className=" flex items-center justify-center lg:w-[600px] md:w-[600px]  max-sm:w-[670px] sm:w-[840px]">
+            <div className=" flex items-center justify-center lg:w-[580px] lg:h-[290px] md:w-[700px]  max-sm:w-[670px] sm:w-[840px]">
               <img
                 className="w-[180px] absolute "
                 src={`/${weatherData.weather}.png`}
@@ -48,7 +48,7 @@ export const Status = ({ weatherData, buscarPlace, cords, fahrenheit }) => {
               <span>•</span>
               <span>{weatherData.dateFormat}</span>
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-3 py-3">
               <UbicacionIcon />
               <p className="text-gray-2 text-lg font-semibold">
                 {weatherData.locationName}

@@ -11,7 +11,7 @@ import { Footer } from "./components/Footer";
 import { HightlightsMedidas } from "./components/HightlightsMedidas";
 import { ChangeTemperature } from "./components/ChangeTemperature";
 import { Status } from "./components/Status";
-import { addPlaceToLocalStorage } from "./components/LocalStorage";
+import { localStoragePlaces } from "./components/LocalStorage";
 
 function App() {
   const [fahrenheit, setFahrenheit] = useState(false);
@@ -97,7 +97,7 @@ function App() {
   };
 
   const buscarPlace = (place) => {
-    addPlaceToLocalStorage(place);
+    localStoragePlaces(place);
 
     clima(place).then((data) => changeWeather(data));
     climaSemanal(place).then((data) => changeForecast(data));

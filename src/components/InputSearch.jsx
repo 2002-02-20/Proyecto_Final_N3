@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { CloseIcon, RightIcon, LupaIcon, UbicacionIcon } from "./Icons";
-import { getPlacesFromLocalStorage } from "./LocalStorage";
+import { CloseIcon, RightIcon, LupaIcon } from "./Icons";
+import { guardadosLocalStorage } from "./LocalStorage";
 
 export function InputSearch({ buscarPlace }) {
   const [abrirMenu, setAbrirMenu] = useState(false);
-  const [searchPlace, setSearchPlace] = useState("");
+  const [buscarCiudad, setBuscarCiudad] = useState("");
   const [places, setPlaces] = useState(null);
   const toggleMenu = () => {
     if (abrirMenu) {
@@ -17,9 +17,11 @@ export function InputSearch({ buscarPlace }) {
 
   const search = (event) => {
     event.preventDefault();
-    buscarPlace(searchPlace);
+    buscarPlace(buscarCiudad);
     toggleMenu()
-    setSearchPlace('')
+    setBuscarCiudad('')
+    setPlaces(guardadosLocalStorage());
+
   };
 
   const selectAndClose = (place) => {
@@ -28,12 +30,12 @@ export function InputSearch({ buscarPlace }) {
   };
 
   useEffect(() => {
-    setPlaces(getPlacesFromLocalStorage());
+    setPlaces(guardadosLocalStorage());
   }, []);
   return (
     <header className="bg-base-color">
-      <div className="py-6 px-4">
-        <button className="py-3 px-5 bg-gray-3 hover:bg-indigo-700 duration-700" onClick={toggleMenu}>
+      <div className="py-4">
+        <button className="py-3 px-5 bg-gray-3 hover:bg-indigo-700 duration-700 transform hover:scale-110 transition ease-in-out" onClick={toggleMenu}>
           Seach for places
         </button>
       </div>
@@ -53,8 +55,8 @@ export function InputSearch({ buscarPlace }) {
               className="bg-transparent w-full py-2 focus:outline-none "
               placeholder="City"
               type="text"
-              value={searchPlace}
-              onChange={(event) => setSearchPlace(event.target.value)}
+              value={buscarCiudad}
+              onChange={(event) => setBuscarCiudad(event.target.value)}
             />
           </div>
           <button type="submit" className="bg-blue-3 px-5 py-3 hover:bg-indigo-700  duration-700">

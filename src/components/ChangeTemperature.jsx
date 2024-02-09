@@ -4,7 +4,7 @@ export const ChangeTemperature = ({ changeGradosF, changeGradosC }) => {
   const [black, setBlack] = useState("#585676");
   const [white, setWhite] = useState("#A09FB1");
 
-  const paintTemperature = () => {
+  const CambioColor = () => {
     setBlack(white);
     setWhite(black);
   };
@@ -16,7 +16,7 @@ export const ChangeTemperature = ({ changeGradosF, changeGradosC }) => {
         className="rounded-full  h-[40px] w-[40px] font-bold text-silver bg-[#585676] undefined mx-3 transform hover:scale-110 transition duration-300 ease-in-out"
         onClick={() => {
           changeGradosC();
-          paintTemperature();
+          CambioColor();
         }}
         style={{ backgroundColor: white }}
       >
@@ -27,7 +27,7 @@ export const ChangeTemperature = ({ changeGradosF, changeGradosC }) => {
         className="rounded-full  h-[40px] w-[40px] font-bold text-silver  bg-[#585676] undefined transform hover:scale-110 transition duration-300 ease-in-out "
         onClick={() => {
           changeGradosF();
-          paintTemperature();
+          CambioColor();
         }}
         style={{ backgroundColor: black }}
       >
