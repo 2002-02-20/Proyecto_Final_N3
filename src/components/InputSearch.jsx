@@ -35,7 +35,7 @@ export function InputSearch({ buscarPlace }) {
   return (
     <header className="bg-base-color">
       <div className="py-4">
-        <button className="py-3 px-5 bg-gray-3 hover:bg-indigo-700 duration-700 transform hover:scale-110 transition ease-in-out" onClick={toggleMenu}>
+        <button className="py-3 px-5 bg-gray-down hover:bg-indigo-700 duration-700 transform hover:scale-110 transition ease-in-out" onClick={toggleMenu}>
           Seach for places
         </button>
       </div>
@@ -59,14 +59,14 @@ export function InputSearch({ buscarPlace }) {
               onChange={(event) => setBuscarCiudad(event.target.value)}
             />
           </div>
-          <button type="submit" className="bg-blue-3 px-5 py-3 hover:bg-indigo-700  duration-700">
+          <button type="submit" className="bg-blue-strong px-5 py-3 hover:bg-indigo-700  duration-700">
             Search
           </button>
         </form>
         <div className="flex flex-col py-10 gap-3">
           {places?.map((place) => (
             <button
-              className="flex w-full px-3 py-6 border hover:border border-transparent hover:border-gray-base group hover:border-gray-1 duration-700 hover:bg-indigo-800"
+              className="flex w-full px-3 py-6 border hover:border border-transparent hover:border-gray-base group hover:border-gray-sprite duration-700 hover:bg-indigo-800"
               key={place}
               onClick={() => selectAndClose(place)}
             >

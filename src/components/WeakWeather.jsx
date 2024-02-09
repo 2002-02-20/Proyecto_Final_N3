@@ -17,7 +17,7 @@ export const WeakWeather = ({forecastData,keys,fahrenheit}) => {
         const weather = forecastData[day].weather;
           return (
             <article
-              className="w-[100%] h-[200px] flex flex-col items-center bg-base-color pb-4 pt-5 px-3 m-auto transform hover:scale-110 transition duration-700 ease-in-out hover:bg-indigo-900"
+              className="w-[100%] h-[200px] flex flex-col items-center bg-base-color pb-4 pt-5 px-3 m-auto transform hover:scale-110 transition duration-700 ease-in-out hover:bg-indigo-900 "
               key={day}
             >
               <p className="text-base font-medium pb-3">{day}</p>
@@ -28,7 +28,7 @@ export const WeakWeather = ({forecastData,keys,fahrenheit}) => {
               />
               <div className="flex gap-8">
               <span>{fahrenheit ? maxTempF + '°F' : maxTemp + '°C'} </span>
-              <span className="text-gray-2">{fahrenheit ? minTempF + '°F' : minTemp + '°C'}</span>
+              <span className="text-gray-basic">{fahrenheit ? minTempF + '°F' : minTemp + '°C'}</span>
               </div>
             </article>
           );

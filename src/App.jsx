@@ -121,7 +121,7 @@ function App() {
 
   return (
     <>
-      <main className="md:flex max-w-8xl mx-auto">
+      <main className="md:flex max-w-8xl mx-auto ">
         <Status
           weatherData={weatherData}
           buscarPlace={buscarPlace}

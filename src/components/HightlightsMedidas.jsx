@@ -20,7 +20,7 @@ export const HightlightsMedidas = ({ weatherData, mph }) => {
             </p>
 
             <div className="flex items-center pt-5 gap-4">
-              <span id="windStatus" className="bg-gray-3 p-3 rounded-full">
+              <span id="windStatus" className="bg-gray-down p-3 rounded-full">
                 <WindArrowIcon />
               </span>
               <span>WSW</span>
@@ -38,7 +38,7 @@ export const HightlightsMedidas = ({ weatherData, mph }) => {
               <span>50</span>
               <span>100</span>
             </div>
-            <div className="w-full h-2 bg-gray-1 rounded-full overflow-hidden">
+            <div className="w-full h-2 bg-gray-sprite rounded-full overflow-hidden">
               <div
                 id="progress"
                 className="h-full bg-yellow-figma transition-all duration-300"
