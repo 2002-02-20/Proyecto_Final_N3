@@ -6,7 +6,6 @@ export function InputSearch({ buscarPlace }) {
   const [abrirMenu, setAbrirMenu] = useState(false);
   const [searchPlace, setSearchPlace] = useState("");
   const [places, setPlaces] = useState(null);
-
   const toggleMenu = () => {
     if (abrirMenu) {
       document.body.classList.remove("no-scrollbar");
@@ -19,6 +18,8 @@ export function InputSearch({ buscarPlace }) {
   const search = (event) => {
     event.preventDefault();
     buscarPlace(searchPlace);
+    toggleMenu()
+    setSearchPlace('')
   };
 
   const selectAndClose = (place) => {
@@ -63,7 +64,7 @@ export function InputSearch({ buscarPlace }) {
         <div className="flex flex-col py-10 gap-3">
           {places?.map((place) => (
             <button
-              className="flex w-full px-3 py-6 border hover:border border-transparent hover:border-gray-base group"
+              className="flex w-full px-3 py-6 border hover:border border-transparent hover:border-gray-base group hover:border-gray-1 duration-700 hover:bg-indigo-800"
               key={place}
               onClick={() => selectAndClose(place)}
             >
