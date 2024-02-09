@@ -32,7 +32,7 @@ export function InputSearch({ buscarPlace }) {
   return (
     <header className="bg-base-color">
       <div className="py-6 px-4">
-        <button className="py-3 px-5 bg-gray-3" onClick={toggleMenu}>
+        <button className="py-3 px-5 bg-gray-3 hover:bg-indigo-700 duration-700" onClick={toggleMenu}>
           Seach for places
         </button>
       </div>
@@ -42,21 +42,21 @@ export function InputSearch({ buscarPlace }) {
           abrirMenu ? "fixed" : "hidden"
         } top-0 left-0 right-0 bottom-0 md:w-[400px] bg-base-color text-center items-center justify-center z-50 overflow-auto no-scrollbar p-3`}
       >
-        <button className="flex ml-auto p-4" onClick={toggleMenu}>
+        <button className="flex ml-auto p-4 " onClick={toggleMenu}>
           <CloseIcon />
         </button>
         <form className="flex gap-3" onSubmit={search}>
-          <div className="flex items-center gap-3 border w-full border-gray-base pl-3 p-1">
+          <div className="flex items-center gap-3 border w-full border-gray-base pl-3 p-1 hover:bg-indigo-700 duration-700">
             <LupaIcon />
             <input
-              className="bg-transparent w-full py-2 focus:outline-none"
+              className="bg-transparent w-full py-2 focus:outline-none "
               placeholder="City"
               type="text"
               value={searchPlace}
               onChange={(event) => setSearchPlace(event.target.value)}
             />
           </div>
-          <button type="submit" className="bg-blue-3 px-5 py-3">
+          <button type="submit" className="bg-blue-3 px-5 py-3 hover:bg-indigo-700  duration-700">
             Search
           </button>
         </form>

@@ -8,7 +8,7 @@ export const HightlightsMedidas = ({ weatherData, mph }) => {
 
       <section className="p-2">
         <div className="grid md:grid-cols-1 md:m-0 gap-7 w-full   sm:grid-cols-1    lg:grid-cols-2   xl:grid-cols-2">
-          <article className="flex flex-col items-center bg-base-color max-sm:w-[100%] sm:w-[100%] h-[204px] px-[12px] py-[18px]">
+          <article className="flex flex-col items-center bg-base-color max-sm:w-[100%] sm:w-[100%] h-[204px] px-[12px] py-[18px] transform hover:scale-110 transition duration-700 hover:bg-indigo-900 ease-in-out">
 
             <p className="text-base font-medium pb-2">Wind status</p>
             <p className="text-6xl md:text-5xl font-bold">
@@ -27,7 +27,7 @@ export const HightlightsMedidas = ({ weatherData, mph }) => {
             </div>
           </article>
 
-          <article className="flex flex-col items-center bg-base-color w-[100%] h-[204px] py-4 px-12">
+          <article className="flex flex-col items-center bg-base-color w-[100%] h-[204px] py-4 px-12 transform hover:scale-110 transition duration-700 hover:bg-indigo-900 ease-in-out">
             <p className="text-base font-medium pb-2">Humidity</p>
             <p className="text-6xl font-bold">
               {weatherData.humidity}
@@ -47,7 +47,7 @@ export const HightlightsMedidas = ({ weatherData, mph }) => {
             <span className="flex justify-end w-full">%</span>
           </article>
 
-          <article className="flex flex-col items-center bg-base-color w-[100%] h-[204px] p-6 justify-center">
+          <article className="flex flex-col items-center bg-base-color w-[100%] h-[204px] p-6 justify-center transform hover:scale-110 transition duration-700 hover:bg-indigo-900 ease-in-out">
             <p className="text-base font-medium pb-2">Visibility</p>
             <p className="text-6xl font-bold">
               {weatherData.visibilityInMiles.toFixed(1)}
@@ -55,7 +55,7 @@ export const HightlightsMedidas = ({ weatherData, mph }) => {
             </p>
           </article>
 
-          <article className="flex flex-col items-center bg-base-color w-[100%] h-[204px] p-6 justify-center">
+          <article className="flex flex-col items-center bg-base-color w-[100%] h-[204px] p-6 justify-center transform hover:scale-110 transition duration-700 hover:bg-indigo-900 ease-in-out">
             <p className="text-base font-medium pb-2">Air Pressure</p>
             <p className="text-6xl font-bold">
               {weatherData.airPressure}

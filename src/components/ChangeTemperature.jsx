@@ -13,7 +13,7 @@ export const ChangeTemperature = ({ changeGradosF, changeGradosC }) => {
     <div className="absolute top-4 right-[75px] hidden md:block ">
       <button
         type="button"
-        className="rounded-full  h-[40px] w-[40px] font-bold text-silver bg-[#585676] undefined mx-3"
+        className="rounded-full  h-[40px] w-[40px] font-bold text-silver bg-[#585676] undefined mx-3 transform hover:scale-110 transition duration-300 ease-in-out"
         onClick={() => {
           changeGradosC();
           paintTemperature();
@@ -24,7 +24,7 @@ export const ChangeTemperature = ({ changeGradosF, changeGradosC }) => {
       </button>
       <button
         type="button"
-        className="rounded-full  h-[40px] w-[40px] font-bold text-silver  bg-[#585676] undefined "
+        className="rounded-full  h-[40px] w-[40px] font-bold text-silver  bg-[#585676] undefined transform hover:scale-110 transition duration-300 ease-in-out "
         onClick={() => {
           changeGradosF();
           paintTemperature();

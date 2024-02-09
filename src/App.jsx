@@ -103,11 +103,6 @@ function App() {
     climaSemanal(place).then((data) => changeForecast(data));
   };
 
-  /*  const inputSearch = (place) => {
-    addPlaceToLocalStorage(place);
-    getWeather(place).then((data) => changeWeather(data));
-    getForecast(place).then((data) => changeForecast(data));
-  }; */
 
   useEffect(() => {
     clima("ecuador").then((data) => changeWeather(data));
